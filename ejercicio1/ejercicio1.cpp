@@ -1,24 +1,34 @@
-#include <iostream> 
+#include <iostream>
 using namespace std;
 
-int main() 
-{ 
-    const int SIZE = 100;
-    int numbers[SIZE];
+void clearConsole();
 
-    // Bucle for para llenar el array con los primeros 100 números enteros
-    for (int i = 0; i < SIZE; ++i) 
+
+int main()
+{
+    clearConsole();
+
+    const int max = 100;
+    typedef int tnumeros[max];
+
+    tnumeros numeros;
+    for ( int i = 0; i < max ; i++ )
     {
-        numbers[i] = i + 1; // Asigna a cada elemento del array el valor de 'i + 1'
+    numeros [i]= i+1; 
     }
-
-    // Bucle for para mostrar los números en pantalla
-    for (int i = 0; i < SIZE; ++i) 
+    for ( int i = 0; i < max ; i++ )
     {
-       cout << numbers[i] << " "; // Imprime cada número seguido de un espacio
+    cout << " Al numero : " << numeros[i] << "( le correponde su indice :)  " << i << endl;
     }
+    return 0;
+}
 
-    cout << endl; // Imprime una nueva línea al final para mejorar el formato de salida
-
-    return 0; 
+ void clearConsole() {
+    #ifdef __unix__
+        system("clear");
+    #elif __APPLE__
+        system("clear");
+    #elif defined(_WIN32) || defined(WIN64)
+        system("cls");
+    #endif
 }
